@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BankController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HelpController;
 use App\Http\Controllers\MarketingController;
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,13 +32,20 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Faq ROute
-    Route::get('faq-index',[FaqController::class,'index'])->name('faq-index');
+    Route::get('faq-index', [FaqController::class, 'index'])->name('faq-index');
 
     // Help Route
-    Route::get('help-index',[HelpController::class,'index'])->name('help-index');
+    Route::get('help-index', [HelpController::class, 'index'])->name('help-index');
 
     // Marketing Media ROute
-    Route::get('marketing-index',[MarketingController::class,'index'])->name('market-index');
+    Route::get('marketing-index', [MarketingController::class, 'index'])->name('market-index');
+
+    Route::post('store-profile', [ProfileController::class, 'saveData'])->name('store-profile');
+    Route::post('store-profile-image', [ProfileController::class, 'saveProfile'])->name('store-profile-image');
+
+    // Store Bank Details
+    Route::post('store-bank-details', [BankController::class, 'storeBank'])->name('store-bank-details');
+    Route::post('store-kyc-data', [BankController::class, 'storeKYC'])->name('store-kyc-data');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

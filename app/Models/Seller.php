@@ -12,4 +12,9 @@ class Seller extends Authenticatable
     use HasFactory, HasApiTokens, Notifiable;
     protected $table = "sellers";
     protected $guarded = ['id'];
+
+    public function bank()
+    {
+        return $this->hasOne(BankDetails::class, 'seller_id', 'id');
+    }
 }
