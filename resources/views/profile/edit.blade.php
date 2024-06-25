@@ -311,7 +311,7 @@
                                             <div class="form-group">
                                                 <div class="form-floating">
                                                     <input type="text" class="form-control" id="ifsc_code"
-                                                        name="ifsc_code" placeholder=""
+                                                        name="ifsc_code" placeholder="" {{ auth()->user()->bank?->status == '1' ? 'readonly' : '' }}
                                                         value="{{ auth()->user()->bank->ifsc_code ?? '' }}">
                                                     <label for="ifsc_code">Bank IFSC Code</label>
                                                 </div>
@@ -321,7 +321,7 @@
                                             <div class="form-group">
                                                 <div class="form-floating">
                                                     <input type="text" class="form-control" id="bank_name"
-                                                        name="bank_name"
+                                                        name="bank_name" {{ auth()->user()->bank?->status == '1' ? 'readonly' : '' }}
                                                         value="{{ auth()->user()->bank->bank_name ?? '' }}"
                                                         placeholder="">
                                                     <label for="bank_name">Bank Name</label>
@@ -332,7 +332,7 @@
                                             <div class="form-group">
                                                 <div class="form-floating">
                                                     <input type="text" class="form-control" id="branch_name"
-                                                        name="branch_name" placeholder=""
+                                                        name="branch_name" placeholder="" {{ auth()->user()->bank?->status == '1' ? 'readonly' : '' }}
                                                         value="{{ auth()->user()->bank->branch_name ?? '' }}">
                                                     <label for="branch_name">Branch Name</label>
                                                 </div>
@@ -344,7 +344,7 @@
                                             <div class="form-group">
                                                 <div class="form-floating">
                                                     <input type="text" class="form-control" id="holder_name"
-                                                        name="holder_name" placeholder=""
+                                                        name="holder_name" placeholder="" {{ auth()->user()->bank?->status == '1' ? 'readonly' : '' }}
                                                         value="{{ auth()->user()->bank->account_holder_name ?? '' }}">
                                                     <label for="holder_name">Account Holder Name</label>
                                                 </div>
@@ -354,14 +354,14 @@
                                             <div class="form-group">
                                                 <div class="form-floating">
                                                     <input type="number" class="form-control" id="account_number"
-                                                        name="account_number" placeholder=""
+                                                        name="account_number" placeholder="" {{ auth()->user()->bank?->status == '1' ? 'readonly' : '' }}
                                                         value="{{ auth()->user()->bank->account_number ?? '' }}">
                                                     <label for="account_number">Bank Account Number</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <div class="form-group text-center">
+                                            <div class="form-group text-center {{ auth()->user()->bank?->status == '1' ? 'd-none' : '' }}">
                                                 <button type="submit"
                                                     class="btn forcolor btn-lg w-100 pb-3">Save</button>
                                             </div>
@@ -389,7 +389,7 @@
                                             <div class="form-group">
                                                 <div class="form-floating">
                                                     <input type="text" class="form-control" id="pan_number"
-                                                        name="pan_number" placeholder=""
+                                                        name="pan_number" placeholder="" {{ auth()->user()->bank?->status == '1' ? 'readonly' : '' }}
                                                         value="{{ auth()->user()->bank->pan_name ?? '' }}">
                                                     <label for="pan_number">Pan Number</label>
                                                 </div>
@@ -399,14 +399,14 @@
                                             <div class="form-group">
                                                 <div class="form-floating">
                                                     <input type="text" class="form-control" id="gst_number"
-                                                        name="gst_number" placeholder=""
+                                                        name="gst_number" placeholder="" {{ auth()->user()->bank?->status == '1' ? 'readonly' : '' }}
                                                         value="{{ auth()->user()->bank->gst_number ?? '' }}">
                                                     <label for="gst_number">GST Number</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <div class="form-group text-center">
+                                            <div class="form-group text-center {{ auth()->user()->bank?->status == '1' ? 'd-none' : '' }}">
                                                 <button type="submit"
                                                     class="btn forcolor btn-lg w-100 pb-3">Save</button>
                                             </div>
@@ -443,11 +443,11 @@
                                     <div class="col-md-12 d-flex mt-1 ms-1"><i
                                             class="fas fa-envelope fs-5"></i><span>satyam@gmail.com</span></div>
                                 </div> --}}
-                                <div class="row mb-3 alert {{ auth()->user()->bank->status == '1' ? 'alert-success' : 'alert-danger' }}">
+                                <div class="row mb-3 alert {{ auth()->user()->bank?->status == '1' ? 'alert-success' : 'alert-danger' }}">
                                     <div class="col-md-12 d-flex">
-                                        <i class="fas {{ auth()->user()->bank->status == '1' ? 'fa-check-circle text-success' : 'fa-circle-xmark text-danger' }} fs-3"></i>
-                                        <span class="{{ auth()->user()->bank->status == '1' ? 'text-success' : 'text-danger' }}">
-                                            {{ auth()->user()->bank->status == '1' ? 'KYC Verified' : 'KYC Pending' }}
+                                        <i class="fas {{ auth()->user()->bank?->status == '1' ? 'fa-check-circle text-success' : 'fa-circle-xmark text-danger' }} fs-3"></i>
+                                        <span class="{{ auth()->user()->bank?->status == '1' ? 'text-success' : 'text-danger' }}">
+                                            {{ auth()->user()->bank?->status == '1' ? 'KYC Verified' : 'KYC Pending' }}
                                         </span>
                                     </div>
                                     <div class="col-md-12 d-flex mt-1 ms-1">

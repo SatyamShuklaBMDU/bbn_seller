@@ -33,6 +33,12 @@
                 <span>Profile</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('all-leads') }}">
+                <i class="bi bi-arrow-up-right-square-fill"></i>
+                <span>All Lead</span>
+            </a>
+        </li>
         {{-- <!-- End Profile Page Nav -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('bankwise-eligibility') }}">

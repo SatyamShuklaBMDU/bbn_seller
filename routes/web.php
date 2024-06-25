@@ -3,6 +3,7 @@
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HelpController;
+use App\Http\Controllers\LeadController;
 use App\Http\Controllers\MarketingController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('/dashboard', function () {
@@ -46,6 +47,14 @@ Route::middleware('auth')->group(function () {
     // Store Bank Details
     Route::post('store-bank-details', [BankController::class, 'storeBank'])->name('store-bank-details');
     Route::post('store-kyc-data', [BankController::class, 'storeKYC'])->name('store-kyc-data');
+
+    // Lead Route
+    Route::get('lead-index',[LeadController::class,'index'])->name('lead-index');
+    Route::post('lead-store',[LeadController::class,'store'])->name('lead-store');
+    Route::post('/get-products', [LeadController::class, 'getProducts'])->name('get-products');
+    Route::post('/get-types', [LeadController::class, 'getTypes'])->name('get-types');
+    Route::get('all-leads',[LeadController::class,'getLeads'])->name('all-leads');
+
 });
 
 require __DIR__ . '/auth.php';
