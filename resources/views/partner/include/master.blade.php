@@ -11,18 +11,18 @@
     <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}" type="image/x-icon">
     {{-- <link rel="stylesheet" href="{{ url('/css/app.css') }}"> --}}
     <!-- ======= Head ======= -->
-    @include('include.head')
+    @include('partner.include.head')
     @yield('style-area')
     <!-- End Head -->
 </head>
 
 <body>
     <!-- ======= Header ======= -->
-    @include('include.header')
+    @include('partner.include.header')
     <!-- End Header -->
 
     <!-- ======= Sidebar ======= -->
-    @include('include.sidebar')
+    @include('partner.include.sidebar')
     <!-- End Sidebar-->
 
     <!-- ======= Main ======= -->
@@ -33,14 +33,14 @@
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    @include('include.footer')
+    @include('partner.include.footer')
     <!-- End Footer -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     <!-- ======= Foot ======= -->
-    @include('include.foot1')
+    @include('partner.include.foot1')
     <!-- End Foot -->
     @yield('script-area')
 

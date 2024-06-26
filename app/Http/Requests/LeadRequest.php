@@ -35,6 +35,7 @@ class LeadRequest extends FormRequest
             'product_id'=>'required',
             'type_id'=>'required',
             'refrences'=>'required|string'
+            
         ];
     }
 }

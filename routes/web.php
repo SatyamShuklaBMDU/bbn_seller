@@ -6,6 +6,8 @@ use App\Http\Controllers\HelpController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\MarketingController;
 use App\Http\Controllers\ProfileController;
+use App\Mail\TestEmail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,11 +29,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
     // Faq ROute
     Route::get('faq-index', [FaqController::class, 'index'])->name('faq-index');
 
@@ -49,12 +50,21 @@ Route::middleware('auth')->group(function () {
     Route::post('store-kyc-data', [BankController::class, 'storeKYC'])->name('store-kyc-data');
 
     // Lead Route
-    Route::get('lead-index',[LeadController::class,'index'])->name('lead-index');
-    Route::post('lead-store',[LeadController::class,'store'])->name('lead-store');
+    Route::get('lead-index', [LeadController::class, 'index'])->name('lead-index');
+    Route::post('lead-store', [LeadController::class, 'store'])->name('lead-store');
     Route::post('/get-products', [LeadController::class, 'getProducts'])->name('get-products');
     Route::post('/get-types', [LeadController::class, 'getTypes'])->name('get-types');
-    Route::get('all-leads',[LeadController::class,'getLeads'])->name('all-leads');
+    Route::get('all-leads', [LeadController::class, 'getLeads'])->name('all-leads');
 
+});
+
+Route::get('/send-test-email', function () {
+    try {
+        Mail::to('shuklasatyam23056@gmail.com')->send(new TestEmail());
+        return 'Test email sent!';
+    } catch (\Exception $e) {
+        return 'Failed to send email: ' . $e->getMessage();
+    }
 });
 
 require __DIR__ . '/auth.php';
