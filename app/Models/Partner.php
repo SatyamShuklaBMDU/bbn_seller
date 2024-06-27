@@ -12,4 +12,9 @@ class Partner extends Authenticatable
 {
     use HasFactory,HasApiTokens,Notifiable;
     protected $table = "partners";
+    public function bank()
+    {
+        return $this->hasOne(PartnerBankDetails::class, 'partner_id', 'id');
+    }
+
 }

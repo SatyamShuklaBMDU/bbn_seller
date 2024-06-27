@@ -1,4 +1,4 @@
-@extends('include.master')
+@extends('partner.include.master')
 @section('style-area')
     <style>
         a {
@@ -7,8 +7,8 @@
         }
 
         /*=============================
-                 Business Card containers
-                ===============================*/
+                     Business Card containers
+                    ===============================*/
         .center-container {
             position: absolute;
             top: 50%;
@@ -32,8 +32,8 @@
         }
 
         /*=============================
-                 Left Content
-                ===============================*/
+                     Left Content
+                    ===============================*/
         .biz-card-a {
             width: 160px;
             height: 220px;
@@ -86,8 +86,8 @@
 
 
         /*=============================
-                 Right Content
-                ===============================*/
+                     Right Content
+                    ===============================*/
         .biz-card-b {
             width: 230px;
             height: 220px;
@@ -164,8 +164,8 @@
         }
 
         /*=============================
-                 Business Card Mobile
-                ===============================*/
+                     Business Card Mobile
+                    ===============================*/
         @media screen and (max-width: 470px) {
 
             .biz-card-a,
@@ -361,7 +361,7 @@
         <h1>Marketing Assets</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('partner-dashboard') }}">Home</a></li>
                 <li class="breadcrumb-item active">Marketing Assets</li>
             </ol>
         </nav>

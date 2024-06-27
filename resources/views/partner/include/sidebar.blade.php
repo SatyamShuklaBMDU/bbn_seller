@@ -15,24 +15,32 @@
                 <span>Profile</span>
             </a>
         </li>
-        {{-- <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('faq-index') }}">
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('get-faq-partner') }}">
                 <i class="bi bi-question-circle"></i>
                 <span>FAQ</span>
             </a>
-        </li><!-- End FAq Page Nav -->
+        </li>
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('help-index') }}">
-                <i class="bi bi-headset"></i>
-                <span>Help</span>
-            </a>
-        </li><!-- End FAq Page Nav -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('market-index') }}">
+            <a class="nav-link collapsed" href="{{ route('get-marketing-partner') }}">
                 <i class="bi bi-person"></i>
                 <span>Marketing Assets</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('get-partner-help') }}">
+                <i class="bi bi-headset"></i>
+                <span>Help</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('partner-add-seller') }}">
+                <i class="bi bi-person-add"></i>
+                <span>Add Seller</span>
+            </a>
+        </li>
+        {{-- <!-- End FAq Page Nav -->
+        <!-- End FAq Page Nav -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('profile.edit') }}">
                 <i class="bi bi-person-circle"></i>
@@ -50,39 +58,37 @@
             <a class="nav-link collapsed" href="{{ route('bankwise-eligibility') }}">
                 <i class="bi bi-play"></i>
                 <span>Bankwise Eligibility</span>
-                </a>
-            </li><!-- End Marketing Assets Page Nav -->
+            </a>
+        </li><!-- End Marketing Assets Page Nav -->
 
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('applications') }}">
-                    <i class="bi bi-person"></i>
-                    <span>Applications</span>
-                </a>
-            </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('applications') }}">
+                <i class="bi bi-person"></i>
+                <span>Applications</span>
+            </a>
+        </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('add-staff') }}">
-                    <i class="bi bi-person-add"></i>
-                    <span>Add Staff</span>
-                </a>
-            </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('add-staff') }}">
+                <i class="bi bi-person-add"></i>
+                <span>Add Staff</span>
+            </a>
+        </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('add-staff') }}">
-                    <i class="bi bi-person-add"></i>
-                    <span>My Team</span>
-                </a>
-            </li>
-
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('loans') }}">
-                    <i class="bi bi-person-add"></i>
-                    <span>Loans</span>
-                </a>
-            </li>
-            <li class="nav-item">
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('add-staff') }}">
+                <i class="bi bi-person-add"></i>
+                <span>My Team</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('loans') }}">
+                <i class="bi bi-person-add"></i>
+                <span>Loans</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('training-video') }}">
                 <i class="bi bi-play"></i>
                 <span>Training Videos</span>
@@ -94,38 +100,30 @@
                 <span>Manage Admin</span>
             </a>
         </li><!-- End Manage Admin Nav -->
-
-
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('all-role') }}">
                 <i class="bi bi-headset"></i>
                 <span>Manage Roles</span>
             </a>
         </li><!-- End Manage Admin Nav -->
-
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('managers.index') }}">
                 <i class="bi bi-headset"></i>
                 <span>Managers</span>
             </a>
         </li><!-- End Manager Nav -->
-
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('branches.index') }}">
                 <i class="bi bi-headset"></i>
                 <span>Branches</span>
             </a>
         </li><!-- End Manage Admin Nav -->
-
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('assign-branch') }}">
                 <i class="bi bi-headset"></i>
                 <span>Branch Assigned</span>
             </a>
         </li><!-- End Manage Admin Nav --> --}}
-
-
-
         {{-- <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('faq-index') }}">
                 <i class="bi bi-question-circle"></i>

@@ -142,8 +142,8 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-12"><i
-                                    class="bi bi-phone"></i>{{ $user->phone_number ?? '+91 12345 12345' }}</div>
+                            <div class="col-lg-12"><i class="bi bi-phone"></i>{{ $user->phone_number ?? '+91 12345 12345' }}
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12"><i class="bi bi-envelope"></i>{{ $user->email ?? '' }}</div>
@@ -168,6 +168,18 @@
                                 <button class="nav-link active" data-bs-toggle="tab"
                                     data-bs-target="#profile-overview">Basic</button>
                             </li>
+                            <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Bank
+                                    Details</button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="tab"
+                                    data-bs-target="#profile-settings">KYC</button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">KYC
+                                    Details</button>
+                            </li>
                         </ul>
                         <div class="tab-content pt-2">
                             <div class="tab-pane fade show active profile-overview" id="profile-overview">
@@ -190,8 +202,8 @@
                                             <div class="form-group">
                                                 <div class="form-floating">
                                                     <input type="text" class="form-control"
-                                                        value="{{ $user->name ?? '' }}" id="fname"
-                                                        name="name" placeholder="">
+                                                        value="{{ $user->name ?? '' }}" id="fname" name="name"
+                                                        placeholder="">
                                                     <label for="fname">First Name</label>
                                                 </div>
                                             </div>
@@ -199,8 +211,8 @@
                                         <div class="col-md-4" style="padding-right: 10px;">
                                             <div class="form-group">
                                                 <div class="form-floating">
-                                                    <input type="email" class="form-control" id="email" name="email"
-                                                        placeholder="" value="{{ $user->email ?? '' }}">
+                                                    <input type="email" class="form-control" id="email"
+                                                        name="email" placeholder="" value="{{ $user->email ?? '' }}">
                                                     <label for="email">Email</label>
                                                 </div>
                                             </div>
@@ -248,8 +260,7 @@
                                             <div class="form-group">
                                                 <div class="form-floating">
                                                     <input type="text" class="form-control" id="city"
-                                                        name="city" placeholder=""
-                                                        value="{{ $user->city ?? '' }}">
+                                                        name="city" placeholder="" value="{{ $user->city ?? '' }}">
                                                     <label for="city">City</label>
                                                 </div>
                                             </div>
@@ -260,8 +271,7 @@
                                             <div class="form-group">
                                                 <div class="form-floating">
                                                     <input type="text" class="form-control" id="state"
-                                                        name="state" placeholder=""
-                                                        value="{{ $user->state ?? '' }}">
+                                                        name="state" placeholder="" value="{{ $user->state ?? '' }}">
                                                     <label for="state">State</label>
                                                 </div>
                                             </div>
@@ -276,6 +286,164 @@
                                         </div>
                                     </div>
                                 </form>
+                            </div>
+                            <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+                                <nav data-mdb-navbar-init class="navbar navbar-expand-lg bg-body-tertiary">
+                                    <div class="container-fluid">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item active" aria-current="page"
+                                                    style="font-size: 22px;padding-left: 20px;transform: translateY(10px);">
+                                                    Bank Details</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                </nav>
+                                <!-- Profile Edit Form -->
+                                <form action="{{ route('store-bank-partner') }}" method="post">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-md-4" style="padding-right: 10px;">
+                                            <div class="form-group">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="ifsc_code"
+                                                        name="ifsc_code" placeholder=""
+                                                        {{ $user->bank?->status == '1' ? 'readonly' : '' }}
+                                                        value="{{ $user->bank->ifsc_code ?? '' }}">
+                                                    <label for="ifsc_code">Bank IFSC Code</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4" style="padding-right: 10px;">
+                                            <div class="form-group">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="bank_name"
+                                                        name="bank_name"
+                                                        {{ $user->bank?->status == '1' ? 'readonly' : '' }}
+                                                        value="{{ $user->bank->bank_name ?? '' }}" placeholder="">
+                                                    <label for="bank_name">Bank Name</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="branch_name"
+                                                        name="branch_name" placeholder=""
+                                                        {{ $user->bank?->status == '1' ? 'readonly' : '' }}
+                                                        value="{{ $user->bank->branch_name ?? '' }}">
+                                                    <label for="branch_name">Branch Name</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4" style="padding-right: 10px;">
+                                            <div class="form-group">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="holder_name"
+                                                        name="holder_name" placeholder=""
+                                                        {{ $user->bank?->status == '1' ? 'readonly' : '' }}
+                                                        value="{{ $user->bank->account_holder_name ?? '' }}">
+                                                    <label for="holder_name">Account Holder Name</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4" style="padding-right: 10px;">
+                                            <div class="form-group">
+                                                <div class="form-floating">
+                                                    <input type="number" class="form-control" id="account_number"
+                                                        name="account_number" placeholder=""
+                                                        {{ $user->bank?->status == '1' ? 'readonly' : '' }}
+                                                        value="{{ $user->bank->account_number ?? '' }}">
+                                                    <label for="account_number">Bank Account Number</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div
+                                                class="form-group text-center {{ $user->bank?->status == '1' ? 'd-none' : '' }}">
+                                                <button type="submit"
+                                                    class="btn forcolor btn-lg w-100 pb-3">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form><!-- End Profile Edit Form -->
+                            </div>
+                            <div class="tab-pane fade pt-3" id="profile-settings">
+                                <nav data-mdb-navbar-init class="navbar navbar-expand-lg bg-body-tertiary">
+                                    <div class="container-fluid">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item active" aria-current="page"
+                                                    style="font-size: 22px;padding-left: 20px;transform: translateY(10px);">
+                                                    KYC Section</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                </nav>
+                                <!-- Settings Form -->
+                                <form action="{{ route('store-kyc-partner') }}" method="POST">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-md-4" style="padding-right: 10px;">
+                                            <div class="form-group">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="pan_number"
+                                                        name="pan_number" placeholder=""
+                                                        {{ $user->bank?->status == '1' ? 'readonly' : '' }}
+                                                        value="{{ $user->bank->pan_name ?? '' }}">
+                                                    <label for="pan_number">Pan Number</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4" style="padding-right: 10px;">
+                                            <div class="form-group">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="gst_number"
+                                                        name="gst_number" placeholder=""
+                                                        {{ $user->bank?->status == '1' ? 'readonly' : '' }}
+                                                        value="{{ $user->bank->gst_number ?? '' }}">
+                                                    <label for="gst_number">GST Number</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div
+                                                class="form-group text-center {{ $user->bank?->status == '1' ? 'd-none' : '' }}">
+                                                <button type="submit"
+                                                    class="btn forcolor btn-lg w-100 pb-3">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form><!-- End settings Form -->
+                            </div>
+                            <div class="tab-pane fade pt-3" id="profile-change-password">
+                                <nav data-mdb-navbar-init class="navbar navbar-expand-lg bg-body-tertiary">
+                                    <div class="container-fluid">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item active" aria-current="page"
+                                                    style="font-size: 22px;padding-left: 20px;transform: translateY(10px);">
+                                                    KYC Status</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                </nav>
+                                <div
+                                    class="row mb-3 alert {{ $user->bank?->status == '1' ? 'alert-success' : 'alert-danger' }}">
+                                    <div class="col-md-12 d-flex">
+                                        <i
+                                            class="fas {{ $user->bank?->status == '1' ? 'fa-check-circle text-success' : 'fa-circle-xmark text-danger' }} fs-3"></i>
+                                        <span class="{{ $user->bank?->status == '1' ? 'text-success' : 'text-danger' }}">
+                                            {{ $user->bank?->status == '1' ? 'KYC Verified' : 'KYC Pending' }}
+                                        </span>
+                                    </div>
+                                    <div class="col-md-12 d-flex mt-1 ms-1">
+                                        <i class="fas fa-user fs-5"></i>
+                                        <span>Upload - PAN Card, Bank Details</span>
+                                    </div>
+                                </div>
                             </div>
                         </div><!-- End Bordered Tabs -->
                     </div>

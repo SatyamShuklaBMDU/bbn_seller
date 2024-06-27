@@ -17,4 +17,17 @@ class Seller extends Authenticatable
     {
         return $this->hasOne(BankDetails::class, 'seller_id', 'id');
     }
+
+    public static function generateUniqueCode()
+    {
+        do {
+            $uniqueNo = 'SELLER' . str_pad(rand(0, 9999), 6, '0', STR_PAD_LEFT);
+        } while (self::where('seller_id', $uniqueNo)->exists());
+        return $uniqueNo;
+    }
+    
+    public function createdBy()
+    {
+        return $this->morphTo();
+    }
 }

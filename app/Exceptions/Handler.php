@@ -45,4 +45,13 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function render($request, Throwable $exception)
+    {
+        if ($exception->getMessage() === 'redirect') {
+            return redirect()->back()->withInput();
+        }
+
+        return parent::render($request, $exception);
+    }
 }

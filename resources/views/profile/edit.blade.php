@@ -123,9 +123,7 @@
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                         <form action="{{ route('store-profile-image') }}" enctype="multipart/form-data" method="post">
                             @csrf
-                            <div class="profile-photo" style="
-                            margin: 10px auto;
-                        "   >
+                            <div class="profile-photo" style="margin: 10px auto;">
                                 <img id="profileImage" src="{{ asset(auth()->user()->profile_pic ?? '') }}"
                                     class="rounded-circle border pr-3">
                             </div>
