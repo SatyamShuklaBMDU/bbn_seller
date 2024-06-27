@@ -117,6 +117,8 @@
                                                         <td>{{ $seller->name }}</td>
                                                         <td>{{ $seller->email }}</td>
                                                         <td>
+                                                            <a href="{{ route('get-specific-seller-lead', encrypt($seller->id)) }}"
+                                                                class="btn forcolor"><i class="fa-solid fa-file"></i></a>
                                                             <button class="btn forcolor edit-btn"
                                                                 data-id="{{ $seller->id }}"
                                                                 data-name="{{ $seller->name }}"

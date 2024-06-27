@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Partner;
 
 use App\Http\Controllers\Controller;
 use App\Models\Seller;
+use App\Models\SellerLead;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -57,6 +58,12 @@ class SellerController extends Controller
         $seller = Seller::findOrFail($id);
         $seller->delete();
         return response()->json(true);
+    }
+    public function getLeads($id)
+    {
+        $Did = decrypt($id);
+        $sellers = SellerLead::where('seller_id', $Did)->latest()->get();
+        return view('partner.seller.alllead', compact('sellers'));
     }
 
 }

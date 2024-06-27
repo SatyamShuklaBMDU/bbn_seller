@@ -28,3 +28,5 @@ Route::middleware('auth:sanctum')->post('seller-logout', [SellerController::clas
 Route::post('partner-login', [PartnerController::class, 'login']);
 Route::post('partner-force-login',[PartnerController::class,'forceLogin']);
 Route::post('partner-logout',[PartnerController::class,'logout'])->middleware('auth:sanctum');
+
+// Route::post('partner-add-seller',[])
