@@ -30,4 +30,5 @@ class Seller extends Authenticatable
     {
         return $this->morphTo();
     }
+
 }

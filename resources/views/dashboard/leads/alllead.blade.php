@@ -2,7 +2,7 @@
 @section('style-area')
     <style>
         .dt-button {
-            background-color: #009ec3 !important;
+            background-color: #00baf2 !important;
             color: white !important;
             border: none !important;
             border-radius: 8px !important;
@@ -21,7 +21,7 @@
 @section('content-area')
     <section class="section dashboard">
         <div class="row pb-2" style="border-bottom: 1px solid black;">
-            <div class="col-sm-6 fs-5"><span style="color: #009ec3;font-weight: bold;">All Lead</span></div>
+            <div class="col-sm-6 fs-5"><span style="color: #00baf2;font-weight: bold;">All Lead</span></div>
         </div>
         <div class="row mt-3">
             <div class="col-md-6">
@@ -99,6 +99,8 @@
                 buttons: [
                     'copy', 'csv', 'excel', 'pdf', 'print'
                 ],
+                scrollY: 342,
+                 scrollX: true,
                 lengthMenu: [10, 25, 50, 75, 100],
                 pageLength: 10,
                 drawCallback: function(settings) {}
