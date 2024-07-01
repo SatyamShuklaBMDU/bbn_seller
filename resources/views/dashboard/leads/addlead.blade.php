@@ -2,7 +2,7 @@
 @section('content-area')
     <section class="section profile">
         <div class="row pb-2" style="border-bottom: 1px solid black;">
-            <div class="col-sm-6 fs-5"><span style="color: #009ec3;font-weight: bold;">New Lead</span></div>
+            <div class="col-sm-6 fs-5"><span style="color: #00baf2;font-weight: bold;">New Lead</span></div>
             <div class="col-sm-6 text-end"><span class="text-danger fw-bold fs-5">*</span> Mandatory Field</div>
         </div>
         @if ($errors->any())

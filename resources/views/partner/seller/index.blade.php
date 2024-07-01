@@ -2,7 +2,7 @@
 @section('style-area')
     <style>
         .dt-button {
-            background-color: #009ec3 !important;
+            background-color: #00baf2 !important;
             color: white !important;
             border: none !important;
             border-radius: 8px !important;

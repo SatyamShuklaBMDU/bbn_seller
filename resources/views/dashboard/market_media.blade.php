@@ -104,9 +104,9 @@
         .biz-shape {
             float: right;
             background: #ff4d79;
-            background: -webkit-linear-gradient(-45deg, #3bc4e2c7 0%, #009ec3 100%);
-            background: -ms-linear-gradient(-45deg, #3bc4e2c7 0%, #009ec3 100%);
-            background: linear-gradient(135deg, #3bc4e2c7 0%, #009ec3 100%);
+            background: -webkit-linear-gradient(-45deg, #3bc4e2c7 0%, #00baf2 100%);
+            background: -ms-linear-gradient(-45deg, #3bc4e2c7 0%, #00baf2 100%);
+            background: linear-gradient(135deg, #3bc4e2c7 0%, #00baf2 100%);
             transform: scaleX(1) rotate(50deg);
             top: 0;
             bottom: 0;
@@ -227,7 +227,7 @@
         .id-card {
             width: 300px;
             background: white;
-            border: 1px solid #009ec3;
+            border: 1px solid #00baf2;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
@@ -235,7 +235,7 @@
         }
 
         .header {
-            background: #009ec3;
+            background: #00baf2;
             padding: 10px;
             border-radius: 10px 10px 0 0;
             color: white;
@@ -249,7 +249,7 @@
         }
 
         .details h2 {
-            color: #009ec3;
+            color: #00baf2;
             margin: 10px 0;
         }
 
@@ -266,7 +266,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #009ec3;
+            background-color: #00baf2;
             padding: 10px;
             border-radius: 10px;
             position: relative;
@@ -340,7 +340,7 @@
                 flex: 1 1 auto;
                 text-align: center;
                 color: #FFF;
-                background-color: #009ec3;
+                background-color: #00baf2;
                 box-shadow: 1px 0 10px rgba(0, 0, 0, .15);
                 border-radius: 5px;
                 cursor: pointer;
@@ -392,7 +392,7 @@
         <div id="home" class="content-item shadow">
             <div class="row pt-3 ps-3 d-flex justify-content-between">
                 <div class="col-2">
-                    <h5 style="color: #009ec3">Marketing Material</h5>
+                    <h5 style="color: #00baf2">Marketing Material</h5>
                 </div>
             </div>
             <div class="row p-3">
@@ -435,7 +435,7 @@
         <div id="logo" class="content-item shadow">
             <div class="row pt-3 ps-3 d-flex justify-content-between" style="padding-right: 20px;">
                 <div class="col-2">
-                    <h5 style="color: #009ec3">Logo</h5>
+                    <h5 style="color: #00baf2">Logo</h5>
                 </div>
             </div>
             {{-- @dd($logos); --}}
@@ -459,7 +459,7 @@
         <div id="recruitment" class="content-item shadow">
             <div class="row pt-3 ps-3 d-flex justify-content-between">
                 <div class="col-2">
-                    <h5 style="color: #009ec3">Recruitment</h5>
+                    <h5 style="color: #00baf2">Recruitment</h5>
                 </div>
             </div>
             <div class="row p-3">
@@ -482,7 +482,7 @@
         <div id="certificate" class="content-item shadow">
             <div class="row pt-3 ps-3 d-flex justify-content-between">
                 <div class="col-2">
-                    <h5 style="color: #009ec3">Certificate</h5>
+                    <h5 style="color: #00baf2">Certificate</h5>
                 </div>
                 <div class="row p-3">
                     <div class="col-md-6 mb-3">
@@ -504,7 +504,7 @@
             <div id="id-card" class="content-item shadow">
                 <div class="row pt-3 ps-3 d-flex justify-content-between">
                     <div class="col-2">
-                        <h5 style="color: #009ec3">ID Card</h5>
+                        <h5 style="color: #00baf2">ID Card</h5>
                     </div>
                 </div>
                 <div class="row p-3">
@@ -526,7 +526,7 @@
             <div id="visiting" class="content-item shadow">
                 <div class="row pt-3 ps-3 d-flex justify-content-between">
                     <div class="col-2">
-                        <h5 style="color: #009ec3">Visiting Card</h5>
+                        <h5 style="color: #00baf2">Visiting Card</h5>
                     </div>
                 </div>
                 <div class="row p-3">
@@ -547,7 +547,7 @@
             <div id="standee" class="content-item shadow">
                 <div class="row pt-3 ps-3 d-flex justify-content-between">
                     <div class="col-2">
-                        <h5 style="color: #009ec3">Standee</h5>
+                        <h5 style="color: #00baf2">Standee</h5>
                     </div>
                 </div>
                 <div class="row p-3">
@@ -569,7 +569,7 @@
             <div id="banner" class="content-item shadow">
                 <div class="row pt-3 ps-3 d-flex justify-content-between">
                     <div class="col-2">
-                        <h5 style="color: #009ec3">Banner</h5>
+                        <h5 style="color: #00baf2">Banner</h5>
                     </div>
                 </div>
                 <div class="row p-3">
@@ -594,7 +594,7 @@
             <div id="social-media" class="content-item shadow">
                 <div class="row pt-3 ps-3 d-flex justify-content-between">
                     <div class="col-2">
-                        <h5 style="color: #009ec3">Social Media</h5>
+                        <h5 style="color: #00baf2">Social Media</h5>
                     </div>
                 </div>
                 <div class="row p-3">
@@ -621,7 +621,7 @@
             <div id="qr-code" class="content-item shadow">
                 <div class="row pt-3 ps-3 d-flex justify-content-between">
                     <div class="col-2">
-                        <h5 style="color: #009ec3">QR Code</h5>
+                        <h5 style="color: #00baf2">QR Code</h5>
                     </div>
                 </div>
                 <div class="row p-3">
@@ -645,7 +645,7 @@
             <div id="invite" class="content-item shadow">
                 <div class="row pt-3 ps-3 d-flex justify-content-between">
                     <div class="col-2">
-                        <h5 style="color: #009ec3">Invites</h5>
+                        <h5 style="color: #00baf2">Invites</h5>
                     </div>
                 </div>
                 <div class="row p-3">
@@ -672,7 +672,7 @@
             <div id="agreement" class="content-item shadow">
                 <div class="row pt-3 ps-3 d-flex justify-content-between">
                     <div class="col-2">
-                        <h5 style="color: #009ec3">Agreement</h5>
+                        <h5 style="color: #00baf2">Agreement</h5>
                     </div>
                 </div>
                 <div class="row p-3">
@@ -696,7 +696,7 @@
             <div id="mmm" class="content-item shadow">
                 <div class="row pt-3 ps-3 d-flex justify-content-between">
                     <div class="col-4">
-                        <h5 style="color: #009ec3">Monday Money Motivation</h5>
+                        <h5 style="color: #00baf2">Monday Money Motivation</h5>
                     </div>
                 </div>
                 <div class="row p-3">
