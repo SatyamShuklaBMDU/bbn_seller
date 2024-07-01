@@ -115,7 +115,7 @@
                                                         <td>{{ $seller->created_at->format('d/m/y') }}</td>
                                                         <td>{{ $seller->seller_id }}</td>
                                                         <td>{{ $seller->name }}</td>
-                                                        <td>{{ $seller->email }}</td>
+                                                        <td><a href="{{ route('partner.seller.login', encrypt($seller->id)) }}" target="_blank">{{ $seller->email }}</a></td>
                                                         <td>
                                                             <a href="{{ route('get-specific-seller-lead', encrypt($seller->id)) }}"
                                                                 class="btn forcolor"><i class="fa-solid fa-file"></i></a>

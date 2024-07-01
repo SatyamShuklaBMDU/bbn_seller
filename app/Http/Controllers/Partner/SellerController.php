@@ -65,5 +65,11 @@ class SellerController extends Controller
         $sellers = SellerLead::where('seller_id', $Did)->latest()->get();
         return view('partner.seller.alllead', compact('sellers'));
     }
+    public function loginSeller($sellerId)
+    {
+        $seller = Seller::findOrFail(decrypt($sellerId));
+        Auth::login($seller);
+        return redirect()->route('dashboard');
+    }
 
 }

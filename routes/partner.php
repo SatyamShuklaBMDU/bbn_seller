@@ -33,4 +33,5 @@ Route::middleware(['partner.auth', 'no-back-history'])->group(function () {
     Route::put('partner-seller-update/{id}',[SellerController::class,'update'])->name('partner-update-seller');
     Route::delete('seller-delete/{id}',[SellerController::class,'destroy'])->name('partner-delete-seller');
     Route::get('get-specific-seller-lead/{id}',[SellerController::class,'getLeads'])->name('get-specific-seller-lead');
+    Route::get('/partner/seller-login/{seller}', [SellerController::class, 'loginSeller'])->name('partner.seller.login');
 });
