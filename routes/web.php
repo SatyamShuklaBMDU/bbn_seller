@@ -41,6 +41,8 @@ Route::middleware(['auth'])->group(function () {
 
     // Marketing Media ROute
     Route::get('marketing-index', [MarketingController::class, 'index'])->name('market-index');
+    Route::get('/get-banks/{product_id}', [MarketingController::class, 'getBanksByProduct']);
+    Route::get('/get-marketing-materials', [MarketingController::class, 'getMarketingMaterials'])->name('get-marketing-materials');
 
     Route::post('store-profile', [ProfileController::class, 'saveData'])->name('store-profile');
     Route::post('store-profile-image', [ProfileController::class, 'saveProfile'])->name('store-profile-image');
