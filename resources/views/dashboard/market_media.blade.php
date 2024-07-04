@@ -7,8 +7,8 @@
         }
 
         /*=============================
-                 Business Card containers
-                ===============================*/
+                     Business Card containers
+                    ===============================*/
         .center-container {
             position: absolute;
             top: 50%;
@@ -32,8 +32,8 @@
         }
 
         /*=============================
-                 Left Content
-                ===============================*/
+                     Left Content
+                    ===============================*/
         .biz-card-a {
             width: 160px;
             height: 220px;
@@ -86,8 +86,8 @@
 
 
         /*=============================
-                 Right Content
-                ===============================*/
+                     Right Content
+                    ===============================*/
         .biz-card-b {
             width: 230px;
             height: 220px;
@@ -164,8 +164,8 @@
         }
 
         /*=============================
-                 Business Card Mobile
-                ===============================*/
+                     Business Card Mobile
+                    ===============================*/
         @media screen and (max-width: 470px) {
 
             .biz-card-a,
@@ -398,32 +398,23 @@
             <div class="row p-3">
                 <div class="col-md-6 mb-3">
                     <label class="mr-sm-2 mb-1" for="selectProduct">Select Product</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" id="selectProduct" aria-label="Default select example">
                         <option selected disabled>Choose....</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        @foreach ($loans as $loan)
+                            <option value="{{ $loan->id }}">{{ $loan->name }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="col-md-6 mb-3 ps-3">
                     <label class="mr-sm-2 mb-1" for="selectBank">Select Bank</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" id="selectBank" aria-label="Default select example">
                         <option selected disabled>Choose....</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
                     </select>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <div class="card p-1" style="width: 20rem;">
-                        <img class="card-img-top"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_FWF2judaujT30K9sMf-tZFhMWpgP6xCemw&s"
-                            alt="Card image cap">
-                        <div class="card-body p-2 text-center">
-                            <a href="" class="btn btn-danger">Delete</a>
-                            <a href=""class="btn forcolor ms-3">Download</a>
-                        </div>
-                    </div>
+
+                <!-- Display Marketing Materials -->
+                <div id="marketingMaterialsContainer" class="row">
+                    <!-- Images will be dynamically loaded here -->
                 </div>
             </div>
         </div>
@@ -442,9 +433,11 @@
             <div class="row p-3">
                 <div class="col-md-6 mb-3">
                     <div class="card p-1" style="width: 20rem;">
-                        <img class="card-img-top" src="{{ asset($logo->media ?? $logo) }}" alt="Logo not found">
+                        <img class="card-img-top"
+                            src="{{ 'https://bmdublog.com/bbn-finance/public/' . ($logo->media ?? $logo) }}"
+                            alt="Logo not found">
                         <div class="card-body p-2 text-center" style="margin-top: 16px;">
-                            {{-- <a href="" class="btn btn-danger" id="" >Delete</a> --}}
+
                             <a href=""class="btn forcolor ms-3">Download</a>
                         </div>
                     </div>
@@ -466,7 +459,8 @@
                 <div class="col-md-6 mb-3">
                     <div class="card p-1" style="width: 100%;">
                         <img class="card-img-top" height="100%" width="100%"
-                            src="{{ asset($recruitment->media ?? '') }}" alt="Recruitment not found">
+                            src="{{ 'https://bmdublog.com/bbn-finance/public/' . ($recruitment->media ?? '') }}"
+                            alt="Recruitment not found">
                         <div class="card-body p-2 text-center">
                             <a href=""class="btn forcolor ms-3">Download</a>
                         </div>
@@ -488,9 +482,10 @@
                     <div class="col-md-6 mb-3">
                         <div class="card p-1" style="width: 100%;">
                             <img class="card-img-top" style="" height="100%" width="100%"
-                                src="{{ asset($certificate->media ?? '') }}" alt="Certificate not found.">
+                                src="{{ 'https://bmdublog.com/bbn-finance/public/' . ($certificate->media ?? '') }}"
+                                alt="Certificate not found.">
                             <div class="card-body p-2 text-center">
-                                {{-- <a href="" class="btn btn-danger">Delete</a> --}}
+                                {{--  --}}
                                 <a href=""class="btn forcolor ms-3">Download</a>
                             </div>
                         </div>
@@ -556,7 +551,7 @@
                             <img class="card-img-top" height="100%"width="100%" src="{{ asset($standee->media ?? '') }}"
                                 alt="Standee not found.">
                             <div class="card-body p-2 text-center">
-                                {{-- <a href="" class="btn btn-danger">Delete</a> --}}
+                                {{--  --}}
                                 <a href=""class="btn forcolor ms-3">Download</a>
                             </div>
                         </div>
@@ -578,7 +573,7 @@
                             <img class="card-img-top" height="100%" width="100%"
                                 src="{{ asset($banner->media ?? '') }}" alt="Banner not found.">
                             <div class="card-body p-2 text-center">
-                                {{-- <a href="" class="btn btn-danger">Delete</a> --}}
+                                {{--  --}}
                                 <a href=""class="btn forcolor ms-3">Download</a>
                             </div>
                         </div>
@@ -604,8 +599,6 @@
                                 <img class="card-img-top" height="250px" src="{{ asset($item->media ?? '') }}"
                                     alt="No social Media Post">
                                 <div class="card-body p-2 text-center">
-                                    <a href="{{ route('delete-socialmedia', encrypt($item->id)) }}"
-                                        class="btn btn-danger">Delete</a>
                                     <a href=""class="btn forcolor ms-3">Download</a>
                                 </div>
                             </div>
@@ -630,7 +623,7 @@
                             <img class="card-img-top" src="{{ asset($qrcode->media ?? '') }}"
                                 alt="QR code asset not found.">
                             <div class="card-body p-2 text-center">
-                                {{-- <a href="" class="btn btn-danger">Delete</a> --}}
+                                {{--  --}}
                                 <a href=""class="btn forcolor ms-3">Download</a>
                             </div>
                         </div>
@@ -718,7 +711,74 @@
         </div>
         {{-- Monday Money Motivation end --}}
     @endsection
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#selectProduct').change(function() {
+                var productId = $(this).val();
+                if (productId) {
+                    $.ajax({
+                        url: '{{ url('get-banks') }}/' + productId,
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                            $('#selectBank').empty();
+                            $('#selectBank').append(
+                                '<option selected disabled>Choose....</option>');
+                            $.each(data, function(key, bank) {
+                                $('#selectBank').append('<option value="' + bank.id +
+                                    '">' + bank.Bankname + '</option>');
+                            });
+                        }
+                    });
+                } else {
+                    $('#selectBank').empty();
+                    $('#selectBank').append('<option selected disabled>Choose....</option>');
+                }
+            });
+            $('#selectProduct, #selectBank').change(function() {
+                var productId = $('#selectProduct').val();
+                var bankId = $('#selectBank').val();
 
+                // Fetch marketing materials based on selected criteria
+                $.ajax({
+                    url: '{{ route('get-marketing-materials') }}',
+                    method: 'GET',
+                    data: {
+                        product_id: productId,
+                        bank_id: bankId
+                    },
+                    success: function(response) {
+                        $('#marketingMaterialsContainer').empty(); // Clear previous content
+
+                        if (response.marketingMaterials.length > 0) {
+                            $.each(response.marketingMaterials, function(index, material) {
+                                var cardHtml = `
+                                <div class="col-md-6 mb-3">
+                                    <div class="card p-1" style="width: 20rem;">
+                                        <img class="card-img-top" src="https://bmdublog.com/bbn-finance/public/${material.image}" alt="Marketing Material">
+                                        <div class="card-body p-2 text-center">
+                                            <a href="#" class="btn forcolor ms-3">Download</a>
+                                        </div>
+                                    </div>
+                                </div>`;
+                                $('#marketingMaterialsContainer').append(cardHtml);
+                            });
+
+                        } else {
+                            // Display message if no materials found
+                            $('#marketingMaterialsContainer').html(
+                                '<p>No marketing materials found for selected criteria.</p>'
+                            );
+                        }
+                    },
+                    error: function(xhr) {
+                        alert('Error fetching marketing materials.'); // Show error message
+                    }
+                });
+            });
+        });
+    </script>
 
     @section('script-area')
         <script>
