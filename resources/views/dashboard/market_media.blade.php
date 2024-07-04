@@ -373,9 +373,9 @@
                 <li class="tab active" onclick="showContent('home')">Marketing Material</li>
                 <li class="tab" onclick="showContent('logo')">Logo</li>
                 <li class="tab" onclick="showContent('recruitment')">Recruitment</li>
-                <li class="tab" onclick="showContent('certificate')">Certificate</li>
+                {{-- <li class="tab" onclick="showContent('certificate')">Certificate</li>
                 <li class="tab" onclick="showContent('id-card')">ID Card</li>
-                <li class="tab" onclick="showContent('visiting')">Visiting Card</li>
+                <li class="tab" onclick="showContent('visiting')">Visiting Card</li> --}}
                 <li class="tab" onclick="showContent('standee')">Standee</li>
                 <li class="tab" onclick="showContent('banner')">Banner</li>
                 <li class="tab" onclick="showContent('social-media')">Social Media</li>
@@ -434,11 +434,10 @@
                 <div class="col-md-6 mb-3">
                     <div class="card p-1" style="width: 20rem;">
                         <img class="card-img-top"
-                            src="{{ 'https://bmdublog.com/bbn-finance/public/' . ($logo->media ?? $logo) }}"
+                        @if(isset($logo->media)) src="{{ 'https://bmdublog.com/bbn-finance/public/'.($logo->media ?? '') }}" @else src="" @endif
                             alt="Logo not found">
                         <div class="card-body p-2 text-center" style="margin-top: 16px;">
-
-                            <a href=""class="btn forcolor ms-3">Download</a>
+                            <a href="{{ isset($logo->media) ? 'https://bmdublog.com/bbn-finance/public/' . $logo->media : '#' }}" download class="btn forcolor ms-3">Download</a>
                         </div>
                     </div>
                 </div>
@@ -459,10 +458,10 @@
                 <div class="col-md-6 mb-3">
                     <div class="card p-1" style="width: 100%;">
                         <img class="card-img-top" height="100%" width="100%"
-                            src="{{ 'https://bmdublog.com/bbn-finance/public/' . ($recruitment->media ?? '') }}"
+                        @if(isset($recruitment->media)) src="{{ 'https://bmdublog.com/bbn-finance/public/'.($recruitment->media ?? '') }}" @else src="" @endif
                             alt="Recruitment not found">
                         <div class="card-body p-2 text-center">
-                            <a href=""class="btn forcolor ms-3">Download</a>
+                            <a href="{{ isset($recruitment->media) ? 'https://bmdublog.com/bbn-finance/public/' . $recruitment->media : '#' }}" download class="btn forcolor ms-3">Download</a>
                         </div>
                     </div>
                 </div>
@@ -482,11 +481,10 @@
                     <div class="col-md-6 mb-3">
                         <div class="card p-1" style="width: 100%;">
                             <img class="card-img-top" style="" height="100%" width="100%"
-                                src="{{ 'https://bmdublog.com/bbn-finance/public/' . ($certificate->media ?? '') }}"
+                            @if(isset($certificate->media)) src="{{ 'https://bmdublog.com/bbn-finance/public/'.($certificate->media ?? '') }}" @else src="" @endif
                                 alt="Certificate not found.">
                             <div class="card-body p-2 text-center">
-                                {{--  --}}
-                                <a href=""class="btn forcolor ms-3">Download</a>
+                                <a href="{{ isset($certificate->media) ? 'https://bmdublog.com/bbn-finance/public/' . $certificate->media : '#' }}" download class="btn forcolor ms-3">Download</a>
                             </div>
                         </div>
                     </div>
@@ -506,9 +504,9 @@
                     <div class="col-md-6 mb-3 m-auto">
                         <div class="card p-1" style="width: 100%;">
                             <img class="card-img-top" height="100%" width="100%"
-                                src="{{ asset($idcard->media ?? '') }}" alt="ID Card not found">
+                            @if(isset($idcard->media)) src="{{ 'https://bmdublog.com/bbn-finance/public/'.($idcard->media ?? '') }}" @else src="" @endif alt="ID Card not found">
                             <div class="card-body p-2 text-center">
-                                <a href=""class="btn forcolor ms-3">Download</a>
+                                <a href="{{ isset($idcard->media) ? 'https://bmdublog.com/bbn-finance/public/' . $idcard->media : '#' }}" download class="btn forcolor ms-3">Download</a>
                             </div>
                         </div>
                     </div>
@@ -528,9 +526,9 @@
                     <div class="col-md-6 mb-3 m-auto">
                         <div class="card p-1" style="width: 30rem;">
                             <img class="card-img-top" height="100%" width="100%"
-                                src="{{ asset($visiting->media ?? '') }}" alt="ID Card not found">
+                            @if(isset($visiting->media)) src="{{ 'https://bmdublog.com/bbn-finance/public/'.($visiting->media ?? '') }}" @else src="" @endif alt="ID Card not found">
                             <div class="card-body p-2 text-center">
-                                <a href=""class="btn forcolor ms-3">Download</a>
+                                <a href="{{ isset($visiting->media) ? 'https://bmdublog.com/bbn-finance/public/' . $visiting->media : '#' }}" download class="btn forcolor ms-3">Download</a>
                             </div>
                         </div>
                     </div>
@@ -548,11 +546,10 @@
                 <div class="row p-3">
                     <div class="col-md-6 mb-3">
                         <div class="card p-1">
-                            <img class="card-img-top" height="100%"width="100%" src="{{ asset($standee->media ?? '') }}"
+                            <img class="card-img-top" height="100%"width="100%"  @if(isset($standee->media)) src="{{ 'https://bmdublog.com/bbn-finance/public/'.($standee->media ?? '') }}" @else src="" @endif
                                 alt="Standee not found.">
                             <div class="card-body p-2 text-center">
-                                {{--  --}}
-                                <a href=""class="btn forcolor ms-3">Download</a>
+                                <a href="{{ isset($standee->media) ? 'https://bmdublog.com/bbn-finance/public/' . $standee->media : '#' }}" download class="btn forcolor ms-3">Download</a>
                             </div>
                         </div>
                     </div>
@@ -571,10 +568,9 @@
                     <div class="col-md-6 mb-3">
                         <div class="card p-1" style="width: 100%;">
                             <img class="card-img-top" height="100%" width="100%"
-                                src="{{ asset($banner->media ?? '') }}" alt="Banner not found.">
+                            @if(isset($banner->media)) src="{{ 'https://bmdublog.com/bbn-finance/public/'.($banner->media ?? '') }}" @else src="" @endif alt="Banner not found.">
                             <div class="card-body p-2 text-center">
-                                {{--  --}}
-                                <a href=""class="btn forcolor ms-3">Download</a>
+                                <a href="{{ isset($banner->media) ? 'https://bmdublog.com/bbn-finance/public/' . $banner->media : '#' }}" download class="btn forcolor ms-3">Download</a>
                             </div>
                         </div>
                     </div>
@@ -596,10 +592,10 @@
                     @foreach ($socialmedia as $item)
                         <div class="col-md-4 mb-3">
                             <div class="card p-1" style="width: 20rem;">
-                                <img class="card-img-top" height="250px" src="{{ asset($item->media ?? '') }}"
+                                <img class="card-img-top" height="250px"  @if(isset($socialmedia->media)) src="{{ 'https://bmdublog.com/bbn-finance/public/'.($socialmedia->media ?? '') }}" @else src="" @endif
                                     alt="No social Media Post">
                                 <div class="card-body p-2 text-center">
-                                    <a href=""class="btn forcolor ms-3">Download</a>
+                                    <a href="{{ isset($socialmedia->media) ? 'https://bmdublog.com/bbn-finance/public/' . $socialmedia->media : '#' }}" download class="btn forcolor ms-3">Download</a>
                                 </div>
                             </div>
                         </div>
@@ -620,11 +616,10 @@
                 <div class="row p-3">
                     <div class="col-md-4 mb-3">
                         <div class="card p-1" style="width: 20rem;">
-                            <img class="card-img-top" src="{{ asset($qrcode->media ?? '') }}"
+                            <img class="card-img-top"  @if(isset($qrcode->media)) src="{{ 'https://bmdublog.com/bbn-finance/public/'.($qrcode->media ?? '') }}" @else src="" @endif
                                 alt="QR code asset not found.">
                             <div class="card-body p-2 text-center">
-                                {{--  --}}
-                                <a href=""class="btn forcolor ms-3">Download</a>
+                                <a href="{{ isset($qrcode->media) ? 'https://bmdublog.com/bbn-finance/public/' . $qrcode->media : '#' }}" download class="btn forcolor ms-3">Download</a>
                             </div>
                         </div>
                     </div>
@@ -645,12 +640,11 @@
                     @foreach ($invite as $item)
                         <div class="col-md-4 mb-3">
                             <div class="card p-1" style="width: 20rem;">
-                                <img class="card-img-top" height="250px" src="{{ asset($item->media ?? '') }}"
+                                <img class="card-img-top" height="250px"  @if(isset($invite->media)) src="{{ 'https://bmdublog.com/bbn-finance/public/'.($invite->media ?? '') }}" @else src="" @endif
                                     alt="No social Media Post">
                                 <div class="card-body p-2 text-center">
-                                    <a href="{{ route('delete-invite', encrypt($item->id)) }}"
-                                        class="btn btn-danger">Delete</a>
-                                    <a href=""class="btn forcolor ms-3">Download</a>
+                                    
+                                    <a href="{{ isset($invite->media) ? 'https://bmdublog.com/bbn-finance/public/' . $invite->media : '#' }}" download class="btn forcolor ms-3">Download</a>
                                 </div>
                             </div>
                         </div>
@@ -672,10 +666,10 @@
                     <div class="col-md-6 mb-3">
                         <div class="card p-1" style="width: 100%;">
                             <img class="card-img-top" height="100%" width="100%"
-                                src="{{ asset($agreement->media ?? '') }}" alt="Card image cap">
+                            @if(isset($agreement->media)) src="{{ 'https://bmdublog.com/bbn-finance/public/'.($agreement->media ?? '') }}" @else src="" @endif alt="Card image cap">
                             <div class="card-body p-2 text-center">
 
-                                <a href=""class="btn forcolor ms-3">Download</a>
+                                <a href="{{ isset($agreement->media) ? 'https://bmdublog.com/bbn-finance/public/' . $agreement->media : '#' }}" download class="btn forcolor ms-3">Download</a>
                             </div>
                         </div>
                     </div>
@@ -696,12 +690,11 @@
                     @foreach ($mmm as $item)
                         <div class="col-md-4 mb-3">
                             <div class="card p-1" style="width: 20rem;">
-                                <img class="card-img-top" height="250px" src="{{ asset($item->media ?? '') }}"
+                                <img class="card-img-top" height="250px"  @if(isset($mmm->media)) src="{{ 'https://bmdublog.com/bbn-finance/public/'.($mmm->media ?? '') }}" @else src="" @endif
                                     alt="No social Media Post">
                                 <div class="card-body p-2 text-center">
-                                    <a href="{{ route('delete-mmm', encrypt($item->id)) }}"
-                                        class="btn btn-danger">Delete</a>
-                                    <a href=""class="btn forcolor ms-3">Download</a>
+                                    
+                                    <a href="{{ isset($mmm->media) ? 'https://bmdublog.com/bbn-finance/public/' . $mmm->media : '#' }}" download class="btn forcolor ms-3">Download</a>
                                 </div>
                             </div>
                         </div>
@@ -758,7 +751,7 @@
                                     <div class="card p-1" style="width: 20rem;">
                                         <img class="card-img-top" src="https://bmdublog.com/bbn-finance/public/${material.image}" alt="Marketing Material">
                                         <div class="card-body p-2 text-center">
-                                            <a href="#" class="btn forcolor ms-3">Download</a>
+                                           <a href="https://bmdublog.com/bbn-finance/public/${material.image}" download class="btn forcolor ms-3">Download</a>
                                         </div>
                                     </div>
                                 </div>`;

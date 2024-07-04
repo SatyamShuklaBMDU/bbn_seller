@@ -6,6 +6,7 @@ use App\Http\Controllers\HelpController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\MarketingController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TrainingVideoController;
 use App\Mail\TestEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -57,6 +58,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/get-products', [LeadController::class, 'getProducts'])->name('get-products');
     Route::post('/get-types', [LeadController::class, 'getTypes'])->name('get-types');
     Route::get('all-leads', [LeadController::class, 'getLeads'])->name('all-leads');
+
+    //Training Video
+    Route::get('training-videos',[TrainingVideoController::class,'index'])->name('training-video');
 
 });
 

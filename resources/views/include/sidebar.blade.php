@@ -39,6 +39,12 @@
                 <span>All Lead</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('training-video') }}">
+                <i class="bi bi-play-fill"></i>
+                <span>Training Video</span>
+            </a>
+        </li>
         {{-- <!-- End Profile Page Nav -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('bankwise-eligibility') }}">
